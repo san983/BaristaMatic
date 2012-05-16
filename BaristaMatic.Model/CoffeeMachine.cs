@@ -50,7 +50,7 @@ namespace BaristaMatic.Model
                     break;
 
                 case "R":
-                    Restock();
+                    
                     break;
             }
         }
@@ -63,6 +63,11 @@ namespace BaristaMatic.Model
         private void PrepareDrink(string selection)
         {
             var actualDrink = _drinks.FirstOrDefault(t => t.Id.ToString() == selection);
+
+            if (true)
+                Console.WriteLine(string.Format("Dispensing: {0}", actualDrink.Name));
+            else
+                Console.WriteLine(string.Format("Out of stock: {0}", actualDrink.Name));
 
             foreach (var recipeIngredient in actualDrink.Ingredients)
             {
@@ -154,9 +159,25 @@ namespace BaristaMatic.Model
         {
             DisplayIngredientsStock();
             DisplayMenu();
-            
-            
-            
+
+            ConsoleKeyInfo cki;
+            do
+            {
+                cki = Console.ReadKey(true);
+
+                if (Char.IsDigit(cki.KeyChar) 
+                    && int.Parse(cki.KeyChar.ToString()) > 0
+                    && int.Parse(cki.KeyChar.ToString()) < 7)
+                    SelectOption(cki.KeyChar.ToString());
+                else if (cki.Key == ConsoleKey.R)
+                    Restock();
+                else
+                    Console.WriteLine(String.Format("Invalid selection: {0}", cki.KeyChar.ToString()));
+
+                DisplayIngredientsStock();
+                DisplayMenu();
+
+            } while (cki.Key != ConsoleKey.Q);
         }
 
         private void DisplayIngredientsStock()
