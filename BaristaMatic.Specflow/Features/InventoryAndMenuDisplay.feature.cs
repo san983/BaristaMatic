@@ -118,6 +118,98 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Dispensing an available drink")]
+        public virtual void DispensingAnAvailableDrink()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dispensing an available drink", ((string[])(null)));
+#line 29
+this.ScenarioSetup(scenarioInfo);
+#line 30
+ testRunner.Given("a full loaded barista matic coffee machine");
+#line 31
+ testRunner.When("I press 2");
+#line 32
+ testRunner.And("I press q");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "OutputLine"});
+            table2.AddRow(new string[] {
+                        "Inventory:"});
+            table2.AddRow(new string[] {
+                        "Cocoa,10"});
+            table2.AddRow(new string[] {
+                        "Coffee,10"});
+            table2.AddRow(new string[] {
+                        "Cream,10"});
+            table2.AddRow(new string[] {
+                        "Decaf Coffee,10"});
+            table2.AddRow(new string[] {
+                        "Espresso,10"});
+            table2.AddRow(new string[] {
+                        "Foamed Milk,10"});
+            table2.AddRow(new string[] {
+                        "Steamed Milk,10"});
+            table2.AddRow(new string[] {
+                        "Sugar,10"});
+            table2.AddRow(new string[] {
+                        "Whipped Cream,10"});
+            table2.AddRow(new string[] {
+                        "Menu:"});
+            table2.AddRow(new string[] {
+                        "1,Caffe Americano,$3.30,true"});
+            table2.AddRow(new string[] {
+                        "2,Caffe Latte,$2.55,true"});
+            table2.AddRow(new string[] {
+                        "3,Caffe Mocha,$3.35,true"});
+            table2.AddRow(new string[] {
+                        "4,Cappuccino,$2.90,true"});
+            table2.AddRow(new string[] {
+                        "5,Coffee,$2.75,true"});
+            table2.AddRow(new string[] {
+                        "6,Decaf Coffee,$2.75,true"});
+            table2.AddRow(new string[] {
+                        "Dispensing: Caffe Latte"});
+            table2.AddRow(new string[] {
+                        "Inventory:"});
+            table2.AddRow(new string[] {
+                        "Cocoa,10"});
+            table2.AddRow(new string[] {
+                        "Coffee,7"});
+            table2.AddRow(new string[] {
+                        "Cream,9"});
+            table2.AddRow(new string[] {
+                        "Decaf Coffee,10"});
+            table2.AddRow(new string[] {
+                        "Espresso,10"});
+            table2.AddRow(new string[] {
+                        "Foamed Milk,10"});
+            table2.AddRow(new string[] {
+                        "Steamed Milk,10"});
+            table2.AddRow(new string[] {
+                        "Sugar,9"});
+            table2.AddRow(new string[] {
+                        "Whipped Cream,10"});
+            table2.AddRow(new string[] {
+                        "Menu:"});
+            table2.AddRow(new string[] {
+                        "1,Caffe Americano,$3.30,true"});
+            table2.AddRow(new string[] {
+                        "2,Caffe Latte,$2.55,true"});
+            table2.AddRow(new string[] {
+                        "3,Caffe Mocha,$3.35,true"});
+            table2.AddRow(new string[] {
+                        "4,Cappuccino,$2.90,true"});
+            table2.AddRow(new string[] {
+                        "5,Coffee,$2.75,true"});
+            table2.AddRow(new string[] {
+                        "6,Decaf Coffee,$2.75,true"});
+#line 33
+ testRunner.Then("the console output should read like this", ((string)(null)), table2);
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

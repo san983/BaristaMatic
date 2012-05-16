@@ -24,7 +24,10 @@ namespace BaristaMatic.Specflow.Steps
         [When("I press (.*)")]
         public void WhenIPress(string selection)
         {
-            _coffeeMachine.SelectOption(selection);
+            if (selection.ToUpper() == "R")
+                _coffeeMachine.Restock();
+            else
+                _coffeeMachine.SelectOption(selection);
         }
 
         [Then("the delivery status should be (.*)")]

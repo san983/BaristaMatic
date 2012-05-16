@@ -24,7 +24,7 @@ namespace BaristaMatic.Specflow.Steps
 
         private static void StartConsole()
         {
-            Console.Program.Main();
+            Console.Program.Main(null);
         }
 
         private static string ParseInventoryTable(Table table)

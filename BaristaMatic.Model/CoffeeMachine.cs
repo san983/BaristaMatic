@@ -6,10 +6,60 @@ namespace BaristaMatic.Model
 {
     public class CoffeeMachine
     {
+        private const string ExitKey = "Q";
+        private const string RestockKey = "R";
+
+        public IList<Ingredient> Ingredients;
+        private readonly IList<Drink> _drinks;
+
         public CoffeeMachine()
         {
             Ingredients = InitializeIngredientsList();
             _drinks = InitializeDrinksList();
+        }
+
+        public bool DeliveryStatus
+        {
+            get { return true; }
+        }
+
+        public void DisplayIngredientsStockAndMenu()
+        {
+            DisplayIngredientsStock();
+            DisplayMenu();
+        }
+
+        public void Restock()
+        {
+            Ingredients = InitializeIngredientsList();
+        }
+
+        public void Run()
+        {
+            DisplayIngredientsStockAndMenu();
+
+            var pressedKey = ExitKey;
+            try
+            {
+                pressedKey = Console.ReadKey(true).KeyChar.ToString();
+            }
+            catch (Exception)
+            {
+            }
+
+            while (IsNotExitCommand(pressedKey))
+            {
+                if (IsValidDrinkOption(pressedKey))
+                    SelectOption(pressedKey);
+                else if (IsRestockCommand(pressedKey))
+                    Restock();
+                else
+                    ShowInvalidSelection(pressedKey);
+
+                DisplayIngredientsStockAndMenu();
+
+                pressedKey = Console.ReadKey(true).KeyChar.ToString();
+            }
         }
 
         private List<Drink> InitializeDrinksList()
@@ -26,15 +76,7 @@ namespace BaristaMatic.Model
 
             return drinksList;
         }
-
-        public bool DeliveryStatus
-        {
-            get { return true; }
-        }
-
-        public IList<Ingredient> Ingredients;
-        private readonly IList<Drink> _drinks;
-
+       
         public void SelectOption(string selection)
         {
             switch (selection.ToUpper())
@@ -45,40 +87,29 @@ namespace BaristaMatic.Model
                 case "4": 
                 case "5": 
                 case "6":
-                    CheckDrink(selection);
-                    PrepareDrink(selection);
-                    break;
-
-                case "R":
-                    
+                    CheckAndPrepareDrink(selection);
                     break;
             }
         }
 
-        private void CheckDrink(string selection)
-        {
-            
-        }
-
-        private void PrepareDrink(string selection)
+        private void CheckAndPrepareDrink(string selection)
         {
             var actualDrink = _drinks.FirstOrDefault(t => t.Id.ToString() == selection);
 
-            if (true)
-                Console.WriteLine(string.Format("Dispensing: {0}", actualDrink.Name));
-            else
-                Console.WriteLine(string.Format("Out of stock: {0}", actualDrink.Name));
-
-            foreach (var recipeIngredient in actualDrink.Ingredients)
+            if (actualDrink.IsAvailable())
             {
-                var currentIngredientStock = Ingredients.FirstOrDefault(t => t.Name == recipeIngredient.Name);
-                currentIngredientStock.Units -= recipeIngredient.Units;
-            }
-        }
+                Console.WriteLine(string.Format("Dispensing: {0}", actualDrink.Name));
 
-        private void Restock()
-        {
-            Ingredients = InitializeIngredientsList();
+                foreach (var recipeIngredient in actualDrink.Ingredients)
+                {
+                    var currentIngredientStock = Ingredients.FirstOrDefault(t => t.Name == recipeIngredient.Name);
+                    currentIngredientStock.Units -= recipeIngredient.Units;
+                }
+            }
+            else
+            {
+                Console.WriteLine(string.Format("Out of stock: {0}", actualDrink.Name));
+            }
         }
 
         private List<Ingredient> GetCaffeMochaIngredients()
@@ -154,31 +185,30 @@ namespace BaristaMatic.Model
                             new Ingredient { Name = "Whipped Cream", Units = 10, UnitCost = 1.00m}
                        };
         }
-
-        public void Run()
+        
+        private static void ShowInvalidSelection(string key)
         {
-            DisplayIngredientsStock();
-            DisplayMenu();
-
-            ConsoleKeyInfo cki;
-            do
-            {
-                cki = Console.ReadKey(true);
-
-                if (Char.IsDigit(cki.KeyChar) 
-                    && int.Parse(cki.KeyChar.ToString()) > 0
-                    && int.Parse(cki.KeyChar.ToString()) < 7)
-                    SelectOption(cki.KeyChar.ToString());
-                else if (cki.Key == ConsoleKey.R)
-                    Restock();
-                else
-                    Console.WriteLine(String.Format("Invalid selection: {0}", cki.KeyChar.ToString()));
-
-                DisplayIngredientsStock();
-                DisplayMenu();
-
-            } while (cki.Key != ConsoleKey.Q);
+            Console.WriteLine(String.Format("Invalid selection: {0}", key));
         }
+
+        private static bool IsNotExitCommand(string key)
+        {
+            return key.ToUpper() != ExitKey;
+        }
+
+        private static bool IsRestockCommand(string key)
+        {
+            return key.ToUpper() == RestockKey;
+        }
+
+        private static bool IsValidDrinkOption(string option)
+        {
+            return Char.IsDigit(option, 0)
+                   && int.Parse(option) > 0
+                   && int.Parse(option) < 7;
+        }
+
+       
 
         private void DisplayIngredientsStock()
         {
