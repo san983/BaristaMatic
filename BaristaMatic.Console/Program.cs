@@ -17,7 +17,6 @@ namespace BaristaMatic.Console
         void Run()
         {
             _baristaMagic.Run();
-            System.Console.ReadKey();
         }
     }
 }
