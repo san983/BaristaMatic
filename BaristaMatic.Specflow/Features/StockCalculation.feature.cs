@@ -79,36 +79,46 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",
-                        "Units"});
+                        "Units",
+                        "UnitCost"});
             table1.AddRow(new string[] {
                         "Coffee",
-                        "10"});
+                        "10",
+                        "0.75"});
             table1.AddRow(new string[] {
                         "Decaf Coffee",
-                        "10"});
+                        "10",
+                        "0.75"});
             table1.AddRow(new string[] {
                         "Sugar",
-                        "10"});
+                        "10",
+                        "0.25"});
             table1.AddRow(new string[] {
                         "Cream",
-                        "10"});
+                        "10",
+                        "0.25"});
             table1.AddRow(new string[] {
                         "Steamed Milk",
-                        "10"});
+                        "10",
+                        "0.35"});
             table1.AddRow(new string[] {
                         "Foamed Milk",
-                        "10"});
+                        "10",
+                        "0.35"});
             table1.AddRow(new string[] {
                         "Espresso",
-                        "10"});
+                        "10",
+                        "1.10"});
             table1.AddRow(new string[] {
                         "Cocoa",
-                        "10"});
+                        "10",
+                        "0.90"});
             table1.AddRow(new string[] {
                         "Whipped Cream",
-                        "10"});
+                        "10",
+                        "1.00"});
 #line 9
- testRunner.Then("the stock should be", ((string)(null)), table1);
+ testRunner.Then("the stock and unit cost should be", ((string)(null)), table1);
 #line hidden
             this.ScenarioCleanup();
         }

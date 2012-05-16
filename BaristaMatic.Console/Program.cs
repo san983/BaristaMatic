@@ -8,8 +8,6 @@ namespace BaristaMatic.Console
         {
             var baristaMagic = new CoffeeMachine();
             baristaMagic.Run();
-
-            //System.Console.ReadKey();
         }
     }
 }

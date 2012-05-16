@@ -82,37 +82,37 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "Inventory:"});
             table1.AddRow(new string[] {
-                        "_Cocoa,10"});
+                        "Cocoa,10"});
             table1.AddRow(new string[] {
-                        "_Coffee,10"});
+                        "Coffee,10"});
             table1.AddRow(new string[] {
-                        "_Cream,10"});
+                        "Cream,10"});
             table1.AddRow(new string[] {
-                        "_Decaf Coffee,10"});
+                        "Decaf Coffee,10"});
             table1.AddRow(new string[] {
-                        "_Espresso,10"});
+                        "Espresso,10"});
             table1.AddRow(new string[] {
-                        "_Foamed Milk,10"});
+                        "Foamed Milk,10"});
             table1.AddRow(new string[] {
-                        "_Steamed Milk,10"});
+                        "Steamed Milk,10"});
             table1.AddRow(new string[] {
-                        "_Sugar,10"});
+                        "Sugar,10"});
             table1.AddRow(new string[] {
-                        "_Whipped Cream,10"});
+                        "Whipped Cream,10"});
             table1.AddRow(new string[] {
                         "Menu:"});
             table1.AddRow(new string[] {
-                        "_1,Caffe Americano,$3.30,true"});
+                        "1,Caffe Americano,$3.30,true"});
             table1.AddRow(new string[] {
-                        "_2,Caffe Latte,$2.55,true"});
+                        "2,Caffe Latte,$2.55,true"});
             table1.AddRow(new string[] {
-                        "_3,Caffe Mocha,$3.35,true"});
+                        "3,Caffe Mocha,$3.35,true"});
             table1.AddRow(new string[] {
-                        "_4,Cappuccino,$2.90,true"});
+                        "4,Cappuccino,$2.90,true"});
             table1.AddRow(new string[] {
-                        "_5,Coffee,$2.75,true"});
+                        "5,Coffee,$2.75,true"});
             table1.AddRow(new string[] {
-                        "_6,Decaf Coffee,$2.75,true"});
+                        "6,Decaf Coffee,$2.75,true"});
 #line 9
  testRunner.Then("the console output should read like this", ((string)(null)), table1);
 #line hidden

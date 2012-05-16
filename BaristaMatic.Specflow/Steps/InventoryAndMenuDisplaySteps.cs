@@ -13,17 +13,23 @@ namespace BaristaMatic.Specflow.Steps
         public void ThenTheConsoleOutputShouldBe(Table table)
         {
             var stringWriter = new StringWriter();
-            
             System.Console.SetOut(stringWriter);
-            Console.Program.Main();
+
+            StartConsole();
 
             var expected = ParseInventoryTable(table);
+
             Assert.AreEqual(expected, stringWriter.ToString());
+        }
+
+        private static void StartConsole()
+        {
+            Console.Program.Main();
         }
 
         private static string ParseInventoryTable(Table table)
         {
-            return table.Rows.Select(row => row["OutputLine"]).Aggregate("", (current, line) => current + line + Environment.NewLine).Replace("_"," ");
+            return table.Rows.Select(row => row["OutputLine"]).Aggregate("", (current, line) => current + line + Environment.NewLine);
         }
     }
 }

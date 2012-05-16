@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Linq;
 using BaristaMatic.Model;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -39,11 +40,27 @@ namespace BaristaMatic.Specflow.Steps
             foreach (var row in table.Rows)
             {
                 var key = row["Ingredient"];
-                var value = row["Units"];
+                var units = row["Units"];
+                
+                var ingredient = _coffeeMachine.Ingredients.FirstOrDefault(t => t.Name == key);
 
-                var currentStock = _coffeeMachine.Ingredients[key].ToString(CultureInfo.InvariantCulture);
+                Assert.That(ingredient.Units.ToString(), Is.EqualTo(units));
+            }
+        }
 
-                Assert.That(currentStock, Is.EqualTo(value));
+        [Then("the stock and unit cost should be")]
+        public void ThenTheStockAndUnitCostShouldBe(Table table)
+        {
+            foreach (var row in table.Rows)
+            {
+                var key = row["Ingredient"];
+                var units = row["Units"];
+                var unitCost = row["UnitCost"];
+
+                var ingredient = _coffeeMachine.Ingredients.FirstOrDefault(t => t.Name == key);
+      
+                Assert.That(ingredient.Units.ToString(), Is.EqualTo(units));
+                Assert.That(ingredient.UnitCost.ToString(), Is.EqualTo(unitCost));
             }
         }
     }

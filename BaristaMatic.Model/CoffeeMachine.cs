@@ -8,6 +8,22 @@ namespace BaristaMatic.Model
         public CoffeeMachine()
         {
             Ingredients = InitializeIngredientsList();
+            Drinks = InitializeDrinksList();
+        }
+
+        private static List<Drink> InitializeDrinksList()
+        {
+            var drinksList = new List<Drink>
+                           {
+                               new Drink { Id = 1, Name = "Caffe Americano" },
+                               new Drink { Id = 2, Name = "Caffe Latte" },
+                               new Drink { Id = 3, Name = "Caffe Mocha" },
+                               new Drink { Id = 4, Name = "Cappuccino" },
+                               new Drink { Id = 5, Name = "Coffee" },
+                               new Drink { Id = 6, Name = "Decaf Coffee" }
+                           };
+
+            return drinksList;
         }
 
         public bool DeliveryStatus
@@ -15,8 +31,9 @@ namespace BaristaMatic.Model
             get { return true; }
         }
 
-        public SortedDictionary<string, int> Ingredients;  
-    
+        public IList<Ingredient> Ingredients;
+        private IList<Drink> Drinks;
+
         public void SelectOption(string selection)
         {
             switch (selection.ToUpper())
@@ -54,83 +71,89 @@ namespace BaristaMatic.Model
 
         private void Restock()
         {
+
+
             Ingredients = InitializeIngredientsList();
         }
 
         private void PrepareCaffeMocha()
         {
-            Ingredients["Espresso"] -= 1;
-            Ingredients["Cocoa"] -= 1;
-            Ingredients["Steamed Milk"] -= 1;
-            Ingredients["Whipped Cream"] -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Cocoa").Units -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Steamed Milk").Units -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Whipped Cream").Units -= 1;
         }
 
         private void PrepareCapuccino()
         {
-            Ingredients["Espresso"] -= 2;
-            Ingredients["Steamed Milk"] -= 1;
-            Ingredients["Foamed Milk"] -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 2;
+            Ingredients.FirstOrDefault(t => t.Name == "Steamed Milk").Units -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Foamed Milk").Units -= 1;
         }
 
         private void PrepareCaffeAmericano()
         {
-            Ingredients["Espresso"] -= 3;
+            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 3;
         }
 
         private void PrepareCaffeLatte()
         {
-            Ingredients["Espresso"] -= 2;
-            Ingredients["Steamed Milk"] -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 2;
+            Ingredients.FirstOrDefault(t => t.Name == "Steamed Milk").Units -= 1;
         }
 
         private void PrepareDecafCoffee()
         {
-            Ingredients["Decaf Coffee"] -= 3;
-            Ingredients["Sugar"] -= 1;
-            Ingredients["Cream"] -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Decaf Coffee").Units -= 3;
+            Ingredients.FirstOrDefault(t => t.Name == "Sugar").Units -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Cream").Units -= 1;
         }
 
         private void PrepareCoffee()
         {
-            Ingredients["Coffee"] -= 3;
-            Ingredients["Sugar"] -= 1;
-            Ingredients["Cream"] -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Coffee").Units -= 3;
+            Ingredients.FirstOrDefault(t => t.Name == "Sugar").Units -= 1;
+            Ingredients.FirstOrDefault(t => t.Name == "Cream").Units -= 1;
         }
 
-        private static SortedDictionary<string, int> InitializeIngredientsList()
+        private static List<Ingredient> InitializeIngredientsList()
         {
-            return new SortedDictionary<string, int>
+            return new List<Ingredient>
                        {
-                           {"Coffee", 10},
-                           {"Decaf Coffee", 10},
-                           {"Sugar", 10},
-                           {"Cream", 10},
-                           {"Steamed Milk", 10},
-                           {"Foamed Milk", 10},
-                           {"Espresso", 10},
-                           {"Cocoa", 10},
-                           {"Whipped Cream", 10}
+                            new Ingredient { Name = "Coffee", Units = 10, UnitCost = 0.75m},
+                            new Ingredient { Name = "Decaf Coffee", Units = 10, UnitCost = 0.75m},
+                            new Ingredient { Name = "Sugar", Units = 10, UnitCost = 0.25m},
+                            new Ingredient { Name = "Cream", Units = 10, UnitCost = 0.25m},
+                            new Ingredient { Name = "Steamed Milk", Units = 10, UnitCost = 0.35m},
+                            new Ingredient { Name = "Foamed Milk", Units = 10, UnitCost = 0.35m},
+                            new Ingredient { Name = "Espresso", Units = 10, UnitCost = 1.10m},
+                            new Ingredient { Name = "Cocoa", Units = 10, UnitCost = 0.90m},
+                            new Ingredient { Name = "Whipped Cream", Units = 10, UnitCost = 1.00m}
                        };
         }
 
         public void Run()
         {
-            ConsoleWrite("Inventory:");
             DisplayIngredientsStock();
-
-            ConsoleWrite("Menu:");
-            ConsoleWrite("");
-        }
-
-        private void DisplayMenu()
-        {
-            throw new System.NotImplementedException();
+            DisplayMenu();
         }
 
         private void DisplayIngredientsStock()
         {
-            foreach (var newline in Ingredients.Select(ingredient => string.Format(" {0},{1}", ingredient.Key, ingredient.Value)))
+            ConsoleWrite("Inventory:");
+
+            foreach (var newLine in Ingredients.OrderBy(t => t.Name).Select(ingredient => string.Format("{0},{1}", ingredient.Name, ingredient.Units)))
             {
+                ConsoleWrite(newLine);
+            }
+        }
+
+        private void DisplayMenu()
+        {
+            ConsoleWrite("Menu:");
+            foreach (var drink in Drinks.OrderBy(t => t.Id))
+            {
+                var newline = string.Format("{0},{1},{2},{3}", drink.Id, drink.Name, drink.GetCost(), drink.IsAvailable().ToString() ); 
                 ConsoleWrite(newline);
             }
         }

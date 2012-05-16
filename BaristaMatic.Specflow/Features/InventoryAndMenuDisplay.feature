@@ -9,19 +9,19 @@ Scenario: Inventory Display at Startup
 	Then the console output should read like this
 		| OutputLine		| 		
 		| Inventory:		| 	
-		| _Cocoa,10			|        
-		| _Coffee,10		| 		
-		| _Cream,10			|         
-		| _Decaf Coffee,10	|   
-		| _Espresso,10		| 	
-		| _Foamed Milk,10   |  
-		| _Steamed Milk,10	|
-		| _Sugar,10			|
-		| _Whipped Cream,10 |	
+		| Cocoa,10			|        
+		| Coffee,10		| 		
+		| Cream,10			|         
+		| Decaf Coffee,10	|   
+		| Espresso,10		| 	
+		| Foamed Milk,10   |  
+		| Steamed Milk,10	|
+		| Sugar,10			|
+		| Whipped Cream,10 |	
 		| Menu:								| 	
-		| _1,Caffe Americano,$3.30,true		|        
-		| _2,Caffe Latte,$2.55,true			| 		
-		| _3,Caffe Mocha,$3.35,true			|         
-		| _4,Cappuccino,$2.90,true			|   
-		| _5,Coffee,$2.75,true				| 	
-		| _6,Decaf Coffee,$2.75,true		|         
+		| 1,Caffe Americano,$3.30,true		|        
+		| 2,Caffe Latte,$2.55,true			| 		
+		| 3,Caffe Mocha,$3.35,true			|         
+		| 4,Cappuccino,$2.90,true			|   
+		| 5,Coffee,$2.75,true				| 	
+		| 6,Decaf Coffee,$2.75,true		|         
