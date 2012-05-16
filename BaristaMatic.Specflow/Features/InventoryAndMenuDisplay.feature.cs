@@ -73,9 +73,7 @@ namespace BaristaMatic.Specflow.Features
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("a full loaded barista matic coffee machine");
-#line 8
- testRunner.When("I start the machine");
+ testRunner.Given("a full loaded barista matic coffee machine with console");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "OutputLine"});
@@ -113,7 +111,7 @@ this.ScenarioSetup(scenarioInfo);
                         "5,Coffee,$2.75,true"});
             table1.AddRow(new string[] {
                         "6,Decaf Coffee,$2.75,true"});
-#line 9
+#line 8
  testRunner.Then("the console output should read like this", ((string)(null)), table1);
 #line hidden
             this.ScenarioCleanup();
@@ -124,13 +122,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void DispensingAnAvailableDrink()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dispensing an available drink", ((string[])(null)));
-#line 29
+#line 28
 this.ScenarioSetup(scenarioInfo);
+#line 29
+ testRunner.Given("a full loaded barista matic coffee machine with console");
 #line 30
- testRunner.Given("a full loaded barista matic coffee machine");
-#line 31
  testRunner.When("I press 2");
-#line 32
+#line 31
  testRunner.And("I press q");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -176,19 +174,19 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "Cocoa,10"});
             table2.AddRow(new string[] {
-                        "Coffee,7"});
+                        "Coffee,10"});
             table2.AddRow(new string[] {
-                        "Cream,9"});
+                        "Cream,10"});
             table2.AddRow(new string[] {
                         "Decaf Coffee,10"});
             table2.AddRow(new string[] {
-                        "Espresso,10"});
+                        "Espresso,8"});
             table2.AddRow(new string[] {
                         "Foamed Milk,10"});
             table2.AddRow(new string[] {
-                        "Steamed Milk,10"});
+                        "Steamed Milk,9"});
             table2.AddRow(new string[] {
-                        "Sugar,9"});
+                        "Sugar,10"});
             table2.AddRow(new string[] {
                         "Whipped Cream,10"});
             table2.AddRow(new string[] {
@@ -205,7 +203,7 @@ this.ScenarioSetup(scenarioInfo);
                         "5,Coffee,$2.75,true"});
             table2.AddRow(new string[] {
                         "6,Decaf Coffee,$2.75,true"});
-#line 33
+#line 32
  testRunner.Then("the console output should read like this", ((string)(null)), table2);
 #line hidden
             this.ScenarioCleanup();

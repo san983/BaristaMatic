@@ -56,8 +56,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StockCalculation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\InventoryAndMenuDisplaySteps.cs" />
-    <Compile Include="Steps\StockCalculationSteps.cs" />
+    <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

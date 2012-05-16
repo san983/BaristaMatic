@@ -5,7 +5,6 @@
 
 Scenario: Initial Stock
 	Given a full loaded barista matic coffee machine
-	When I start the machine
 	Then the stock and unit cost should be
 		| Ingredient	| Units		| UnitCost	| 	
 		| Coffee		| 10		| 0.75		|

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace BaristaMatic.Model
@@ -11,9 +12,11 @@ namespace BaristaMatic.Model
 
         public IList<Ingredient> Ingredients;
         private readonly IList<Drink> _drinks;
+        public string Out;
 
         public CoffeeMachine()
         {
+            Out = string.Empty;
             Ingredients = InitializeIngredientsList();
             _drinks = InitializeDrinksList();
         }
@@ -41,25 +44,37 @@ namespace BaristaMatic.Model
             var pressedKey = ExitKey;
             try
             {
-                pressedKey = Console.ReadKey(true).KeyChar.ToString();
+                pressedKey = GetPressedKey();
             }
-            catch (Exception)
+            catch
             {
             }
 
             while (IsNotExitCommand(pressedKey))
             {
-                if (IsValidDrinkOption(pressedKey))
-                    SelectOption(pressedKey);
-                else if (IsRestockCommand(pressedKey))
-                    Restock();
-                else
-                    ShowInvalidSelection(pressedKey);
-
-                DisplayIngredientsStockAndMenu();
-
-                pressedKey = Console.ReadKey(true).KeyChar.ToString();
+                RunWithSelection(pressedKey);
+                pressedKey = GetPressedKey();
             }
+        }
+
+        private static string GetPressedKey()
+        {
+            return Console.ReadKey(true).KeyChar.ToString(CultureInfo.InvariantCulture);
+        }
+
+        public void RunWithSelection(string pressedKey)
+        {
+            if (!IsNotExitCommand(pressedKey))
+                return;
+
+            if (IsValidDrinkOption(pressedKey))
+                SelectOption(pressedKey);
+            else if (IsRestockCommand(pressedKey))
+                Restock();
+            else
+                ShowInvalidSelection(pressedKey);
+
+            DisplayIngredientsStockAndMenu();
         }
 
         private List<Drink> InitializeDrinksList()
@@ -98,7 +113,7 @@ namespace BaristaMatic.Model
 
             if (actualDrink.IsAvailable())
             {
-                Console.WriteLine(string.Format("Dispensing: {0}", actualDrink.Name));
+                Write(string.Format("Dispensing: {0}", actualDrink.Name));
 
                 foreach (var recipeIngredient in actualDrink.Ingredients)
                 {
@@ -108,9 +123,10 @@ namespace BaristaMatic.Model
             }
             else
             {
-                Console.WriteLine(string.Format("Out of stock: {0}", actualDrink.Name));
+                Write(string.Format("Out of stock: {0}", actualDrink.Name));
             }
         }
+
 
         private List<Ingredient> GetCaffeMochaIngredients()
         {
@@ -186,9 +202,9 @@ namespace BaristaMatic.Model
                        };
         }
         
-        private static void ShowInvalidSelection(string key)
+        private void ShowInvalidSelection(string key)
         {
-            Console.WriteLine(String.Format("Invalid selection: {0}", key));
+            Write(String.Format("Invalid selection: {0}", key));
         }
 
         private static bool IsNotExitCommand(string key)
@@ -207,26 +223,30 @@ namespace BaristaMatic.Model
                    && int.Parse(option) > 0
                    && int.Parse(option) < 7;
         }
-
-       
-
+        
         private void DisplayIngredientsStock()
         {
-            Console.WriteLine("Inventory:");
+            Write("Inventory:");
             foreach (var newLine in Ingredients.OrderBy(t => t.Name).Select(ingredient => string.Format("{0},{1}", ingredient.Name, ingredient.Units)))
             {
-                Console.WriteLine(newLine);
+                Write(newLine);
             }
         }
 
         private void DisplayMenu()
         {
-            Console.WriteLine("Menu:");
+            Write("Menu:");
             foreach (var drink in _drinks.OrderBy(t => t.Id))
             {
                 var newline = string.Format("{0},{1},{2},{3}", drink.Id, drink.Name, drink.GetCost(), drink.IsAvailable().ToString().ToLower()); 
-                Console.WriteLine(newline);
+                Write(newline);
             }
+        }
+
+        private void Write(string text)
+        {
+            Out += (text + Environment.NewLine);
+            Console.WriteLine(text);
         }
     }
 }

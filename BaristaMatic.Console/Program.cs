@@ -4,13 +4,19 @@ namespace BaristaMatic.Console
 {
     public class Program
     {
-        public static void Main(string[] args)
-        {
-            var baristaMagic = new CoffeeMachine();
+        CoffeeMachine _baristaMagic;
 
-            baristaMagic.Run();
-            
-            //System.Console.ReadKey();
+        public static void Main()
+        {
+            new Program
+            {
+                _baristaMagic = new CoffeeMachine()
+            }.Run();
+        }
+
+        void Run()
+        {
+            _baristaMagic.Run();
         }
     }
 }
