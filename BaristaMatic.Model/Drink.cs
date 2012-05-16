@@ -16,10 +16,5 @@ namespace BaristaMatic.Model
             var result = Ingredients.Sum(ingredient => ingredient.UnitCost * ingredient.Units);
             return result.ToString("C");
         }
-
-        public bool IsAvailable()
-        {
-            return true;
-        }
     }
 }

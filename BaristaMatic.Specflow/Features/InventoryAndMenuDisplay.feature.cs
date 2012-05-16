@@ -360,13 +360,13 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "Menu:"});
             table3.AddRow(new string[] {
-                        "1,Caffe Americano,$3.30,true"});
+                        "1,Caffe Americano,$3.30,false"});
             table3.AddRow(new string[] {
-                        "2,Caffe Latte,$2.55,true"});
+                        "2,Caffe Latte,$2.55,false"});
             table3.AddRow(new string[] {
                         "3,Caffe Mocha,$3.35,true"});
             table3.AddRow(new string[] {
-                        "4,Cappuccino,$2.90,true"});
+                        "4,Cappuccino,$2.90,false"});
             table3.AddRow(new string[] {
                         "5,Coffee,$2.75,true"});
             table3.AddRow(new string[] {
@@ -396,13 +396,13 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "Menu:"});
             table3.AddRow(new string[] {
-                        "1,Caffe Americano,$3.30,true"});
+                        "1,Caffe Americano,$3.30,false"});
             table3.AddRow(new string[] {
-                        "2,Caffe Latte,$2.55,true"});
+                        "2,Caffe Latte,$2.55,false"});
             table3.AddRow(new string[] {
                         "3,Caffe Mocha,$3.35,true"});
             table3.AddRow(new string[] {
-                        "4,Cappuccino,$2.90,true"});
+                        "4,Cappuccino,$2.90,false"});
             table3.AddRow(new string[] {
                         "5,Coffee,$2.75,true"});
             table3.AddRow(new string[] {
