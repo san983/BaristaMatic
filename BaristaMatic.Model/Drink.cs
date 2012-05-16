@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace BaristaMatic.Model
 {
     public class Drink
@@ -6,9 +9,13 @@ namespace BaristaMatic.Model
 
         public string Name { get; set; }
 
+        public List<Ingredient> Ingredients { get; set; }
+
         public string GetCost()
         {
-            return "$0.00";
+            var aa = Ingredients.Sum(ingredient => ingredient.UnitCost * ingredient.Units).ToString("C");
+
+            return aa;
         }
 
         public bool IsAvailable()

@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Linq;
+﻿using System.Linq;
 using BaristaMatic.Model;
 using NUnit.Framework;
 using TechTalk.SpecFlow;

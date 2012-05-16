@@ -133,7 +133,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 22
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 23
- testRunner.When("I press 1");
+ testRunner.When("I press 5");
 #line 24
  testRunner.Then("the delivery status should be true");
 #line hidden
@@ -183,7 +183,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 38
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 39
- testRunner.When("I press 2");
+ testRunner.When("I press 6");
 #line 40
  testRunner.Then("the delivery status should be true");
 #line hidden
@@ -233,7 +233,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 54
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 55
- testRunner.When("I press 3");
+ testRunner.When("I press 2");
 #line 56
  testRunner.Then("the delivery status should be true");
 #line hidden
@@ -283,7 +283,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 70
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 71
- testRunner.When("I press 4");
+ testRunner.When("I press 1");
 #line 72
  testRunner.Then("the delivery status should be true");
 #line hidden
@@ -333,7 +333,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 86
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 87
- testRunner.When("I press 5");
+ testRunner.When("I press 3");
 #line 88
  testRunner.Then("the delivery status should be true");
 #line hidden
@@ -383,7 +383,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 102
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 103
- testRunner.When("I press 6");
+ testRunner.When("I press 4");
 #line 104
  testRunner.Then("the delivery status should be true");
 #line hidden
@@ -433,9 +433,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 118
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 119
- testRunner.When("I press 1");
+ testRunner.When("I press 5");
 #line 120
- testRunner.And("I press 2");
+ testRunner.And("I press 6");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",

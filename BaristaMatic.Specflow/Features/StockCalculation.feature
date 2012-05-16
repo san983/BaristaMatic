@@ -20,7 +20,7 @@ Scenario: Initial Stock
 
 Scenario: Just one coffee
 	Given a full loaded barista matic coffee machine
-	When I press 1
+	When I press 5
 	Then the delivery status should be true
 	And the stock should be
 		| Ingredient	| Units		|		
@@ -36,7 +36,7 @@ Scenario: Just one coffee
 
 Scenario: Just one decaf coffee
 	Given a full loaded barista matic coffee machine
-	When I press 2
+	When I press 6
 	Then the delivery status should be true
 	And the stock should be
 		| Ingredient	| Units		|		
@@ -52,7 +52,7 @@ Scenario: Just one decaf coffee
 
 Scenario: Just one Caffe Latte
 	Given a full loaded barista matic coffee machine
-	When I press 3
+	When I press 2
 	Then the delivery status should be true
 	And the stock should be
 		| Ingredient	| Units		|		
@@ -68,7 +68,7 @@ Scenario: Just one Caffe Latte
 
 Scenario: Just one Caffe Americano
 	Given a full loaded barista matic coffee machine
-	When I press 4
+	When I press 1
 	Then the delivery status should be true
 	And the stock should be
 		| Ingredient	| Units		|		
@@ -84,7 +84,7 @@ Scenario: Just one Caffe Americano
 
 Scenario: Just one Caffe Mocha
 	Given a full loaded barista matic coffee machine
-	When I press 5
+	When I press 3
 	Then the delivery status should be true
 	And the stock should be
 		| Ingredient	| Units		|		
@@ -100,7 +100,7 @@ Scenario: Just one Caffe Mocha
 
 Scenario: Just one Cappuccino
 	Given a full loaded barista matic coffee machine
-	When I press 6
+	When I press 4
 	Then the delivery status should be true
 	And the stock should be
 		| Ingredient	| Units		|		
@@ -116,8 +116,8 @@ Scenario: Just one Cappuccino
 
 Scenario: Restock
 	Given a full loaded barista matic coffee machine
-	When I press 1
-	And I press 2
+	When I press 5
+	And I press 6
 	Then the stock should be
 		| Ingredient	| Units		|		
 		| Coffee		| 7			|

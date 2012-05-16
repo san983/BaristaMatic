@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BaristaMatic.Model
@@ -8,19 +9,19 @@ namespace BaristaMatic.Model
         public CoffeeMachine()
         {
             Ingredients = InitializeIngredientsList();
-            Drinks = InitializeDrinksList();
+            _drinks = InitializeDrinksList();
         }
 
-        private static List<Drink> InitializeDrinksList()
+        private List<Drink> InitializeDrinksList()
         {
             var drinksList = new List<Drink>
                            {
-                               new Drink { Id = 1, Name = "Caffe Americano" },
-                               new Drink { Id = 2, Name = "Caffe Latte" },
-                               new Drink { Id = 3, Name = "Caffe Mocha" },
-                               new Drink { Id = 4, Name = "Cappuccino" },
-                               new Drink { Id = 5, Name = "Coffee" },
-                               new Drink { Id = 6, Name = "Decaf Coffee" }
+                               new Drink { Id = 1, Name = "Caffe Americano", Ingredients = GetCaffeAmericanoIngredients()},
+                               new Drink { Id = 2, Name = "Caffe Latte", Ingredients = GetCaffeLatteIngredients() },
+                               new Drink { Id = 3, Name = "Caffe Mocha", Ingredients = GetCaffeMochaIngredients() },
+                               new Drink { Id = 4, Name = "Cappuccino", Ingredients = GetCappuccinoIngredients() },
+                               new Drink { Id = 5, Name = "Coffee", Ingredients = GetCoffeeIngredients() },
+                               new Drink { Id = 6, Name = "Decaf Coffee", Ingredients = GetDecafCoffeeIngredients() }
                            };
 
             return drinksList;
@@ -32,88 +33,105 @@ namespace BaristaMatic.Model
         }
 
         public IList<Ingredient> Ingredients;
-        private IList<Drink> Drinks;
+        private readonly IList<Drink> _drinks;
 
         public void SelectOption(string selection)
         {
             switch (selection.ToUpper())
             {
                 case "1":
-                    PrepareCoffee();
-                    break;
-
-                case "2":
-                    PrepareDecafCoffee();
-                    break;
-
-                case "3":
-                    PrepareCaffeLatte();
-                    break;
-
-                case "4":
-                    PrepareCaffeAmericano();
-                    break;
-
-                case "5":
-                    PrepareCaffeMocha();
-                    break;
-
+                case "2": 
+                case "3": 
+                case "4": 
+                case "5": 
                 case "6":
-                    PrepareCapuccino();
+                    CheckDrink(selection);
+                    PrepareDrink(selection);
                     break;
 
                 case "R":
                     Restock();
                     break;
+            }
+        }
 
+        private void CheckDrink(string selection)
+        {
+            
+        }
+
+        private void PrepareDrink(string selection)
+        {
+            var actualDrink = _drinks.FirstOrDefault(t => t.Id.ToString() == selection);
+
+            foreach (var recipeIngredient in actualDrink.Ingredients)
+            {
+                var currentIngredientStock = Ingredients.FirstOrDefault(t => t.Name == recipeIngredient.Name);
+                currentIngredientStock.Units -= recipeIngredient.Units;
             }
         }
 
         private void Restock()
         {
-
-
             Ingredients = InitializeIngredientsList();
         }
 
-        private void PrepareCaffeMocha()
+        private List<Ingredient> GetCaffeMochaIngredients()
         {
-            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 1;
-            Ingredients.FirstOrDefault(t => t.Name == "Cocoa").Units -= 1;
-            Ingredients.FirstOrDefault(t => t.Name == "Steamed Milk").Units -= 1;
-            Ingredients.FirstOrDefault(t => t.Name == "Whipped Cream").Units -= 1;
+            return new List<Ingredient>
+                       {
+                           new Ingredient { Name = "Espresso", Units = 1, UnitCost = 1.10m},
+                           new Ingredient { Name = "Steamed Milk", Units = 1, UnitCost = 0.35m},                           
+                           new Ingredient { Name = "Cocoa", Units = 1, UnitCost = 0.90m},
+                           new Ingredient { Name = "Whipped Cream", Units = 1, UnitCost = 1.00m}
+                       };
         }
 
-        private void PrepareCapuccino()
+        private List<Ingredient> GetCappuccinoIngredients()
         {
-            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 2;
-            Ingredients.FirstOrDefault(t => t.Name == "Steamed Milk").Units -= 1;
-            Ingredients.FirstOrDefault(t => t.Name == "Foamed Milk").Units -= 1;
+            return new List<Ingredient>
+                       {
+                           new Ingredient { Name = "Espresso", Units = 2, UnitCost = 1.10m},
+                           new Ingredient { Name = "Steamed Milk", Units = 1, UnitCost = 0.35m},                           
+                           new Ingredient { Name = "Foamed Milk", Units = 1, UnitCost = 0.35m}
+                       };
         }
 
-        private void PrepareCaffeAmericano()
+        private List<Ingredient> GetCaffeAmericanoIngredients()
         {
-            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 3;
+            return new List<Ingredient>
+                       {
+                           new Ingredient { Name = "Espresso", Units = 3, UnitCost = 1.10m}
+                       };
         }
 
-        private void PrepareCaffeLatte()
+        private List<Ingredient> GetCaffeLatteIngredients()
         {
-            Ingredients.FirstOrDefault(t => t.Name == "Espresso").Units -= 2;
-            Ingredients.FirstOrDefault(t => t.Name == "Steamed Milk").Units -= 1;
+            return new List<Ingredient>
+                       {
+                           new Ingredient { Name = "Espresso", Units = 2, UnitCost = 1.10m},
+                           new Ingredient { Name = "Steamed Milk", Units = 1, UnitCost = 0.35m}
+                       };
         }
 
-        private void PrepareDecafCoffee()
+        private List<Ingredient> GetDecafCoffeeIngredients()
         {
-            Ingredients.FirstOrDefault(t => t.Name == "Decaf Coffee").Units -= 3;
-            Ingredients.FirstOrDefault(t => t.Name == "Sugar").Units -= 1;
-            Ingredients.FirstOrDefault(t => t.Name == "Cream").Units -= 1;
+            return new List<Ingredient>
+                       {
+                           new Ingredient { Name = "Decaf Coffee", Units = 3, UnitCost = 0.75m},
+                           new Ingredient { Name = "Sugar", Units = 1, UnitCost = 0.25m},                           
+                           new Ingredient { Name = "Cream", Units = 1, UnitCost = 0.25m}
+                       };
         }
 
-        private void PrepareCoffee()
+        private List<Ingredient> GetCoffeeIngredients()
         {
-            Ingredients.FirstOrDefault(t => t.Name == "Coffee").Units -= 3;
-            Ingredients.FirstOrDefault(t => t.Name == "Sugar").Units -= 1;
-            Ingredients.FirstOrDefault(t => t.Name == "Cream").Units -= 1;
+            return new List<Ingredient>
+                       {
+                           new Ingredient { Name = "Coffee", Units = 3, UnitCost = 0.75m},
+                           new Ingredient { Name = "Sugar", Units = 1, UnitCost = 0.25m},                           
+                           new Ingredient { Name = "Cream", Units = 1, UnitCost = 0.25m}
+                       };
         }
 
         private static List<Ingredient> InitializeIngredientsList()
@@ -136,31 +154,28 @@ namespace BaristaMatic.Model
         {
             DisplayIngredientsStock();
             DisplayMenu();
+            
+            
+            
         }
 
         private void DisplayIngredientsStock()
         {
-            ConsoleWrite("Inventory:");
-
+            Console.WriteLine("Inventory:");
             foreach (var newLine in Ingredients.OrderBy(t => t.Name).Select(ingredient => string.Format("{0},{1}", ingredient.Name, ingredient.Units)))
             {
-                ConsoleWrite(newLine);
+                Console.WriteLine(newLine);
             }
         }
 
         private void DisplayMenu()
         {
-            ConsoleWrite("Menu:");
-            foreach (var drink in Drinks.OrderBy(t => t.Id))
+            Console.WriteLine("Menu:");
+            foreach (var drink in _drinks.OrderBy(t => t.Id))
             {
-                var newline = string.Format("{0},{1},{2},{3}", drink.Id, drink.Name, drink.GetCost(), drink.IsAvailable().ToString() ); 
-                ConsoleWrite(newline);
+                var newline = string.Format("{0},{1},{2},{3}", drink.Id, drink.Name, drink.GetCost(), drink.IsAvailable().ToString().ToLower()); 
+                Console.WriteLine(newline);
             }
-        }
-
-        private static void ConsoleWrite(string line)
-        {
-            System.Console.WriteLine(line);
         }
     }
 }
