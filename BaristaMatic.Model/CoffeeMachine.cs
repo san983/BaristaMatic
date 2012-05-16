@@ -24,17 +24,13 @@ namespace BaristaMatic.Model
             _consoleOut = string.Empty;
             Ingredients = InitializeIngredientsList();
             _drinks = InitializeDrinksList();
+
+            DisplayIngredientsStockAndMenu();
         }
 
         public bool DeliveryStatus
         {
             get { return true; }
-        }
-
-        public void DisplayIngredientsStockAndMenu()
-        {
-            DisplayIngredientsStock();
-            DisplayDrinksMenu();
         }
 
         public void Restock()
@@ -44,8 +40,6 @@ namespace BaristaMatic.Model
 
         public void Run()
         {
-            DisplayIngredientsStockAndMenu();
-
             var pressedKey = ExitKey;
             try
             {
@@ -62,10 +56,6 @@ namespace BaristaMatic.Model
             }
         }
 
-        private static string GetPressedKey()
-        {
-            return Console.ReadKey(true).KeyChar.ToString(CultureInfo.InvariantCulture);
-        }
 
         public void RunWithSelection(string pressedKey)
         {
@@ -81,8 +71,6 @@ namespace BaristaMatic.Model
 
             DisplayIngredientsStockAndMenu();
         }
-
-
        
         public void SelectOption(string selection)
         {
@@ -141,6 +129,17 @@ namespace BaristaMatic.Model
                    && int.Parse(option) < 7;
         }
 
+        private static string GetPressedKey()
+        {
+            return Console.ReadKey(true).KeyChar.ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void DisplayIngredientsStockAndMenu()
+        {
+            DisplayIngredientsStock();
+            DisplayDrinksMenu();
+        }
+        
         private void DisplayIngredientsStock()
         {
             Write("Inventory:");

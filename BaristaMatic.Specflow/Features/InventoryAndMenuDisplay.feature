@@ -4,7 +4,7 @@
 	I want to be told the inventory of ingredients and available drinks with each correspondent cost
 
 Scenario: Inventory Display at Startup
-	Given a full loaded barista matic coffee machine with console
+	Given a full loaded barista matic coffee machine
 	Then the console output should read like this
 		| OutputLine		| 		
 		| Inventory:		| 	
@@ -26,7 +26,7 @@ Scenario: Inventory Display at Startup
 		| 6,Decaf Coffee,$2.75,true		|        
 		
 Scenario: Dispensing an available drink
-	Given a full loaded barista matic coffee machine with console
+	Given a full loaded barista matic coffee machine
 	When I press 2
 	And I press q
 	Then the console output should read like this
@@ -69,7 +69,7 @@ Scenario: Dispensing an available drink
 
 
 Scenario: Trying to dispense an non-available drink
-	Given a full loaded barista matic coffee machine with console
+	Given a full loaded barista matic coffee machine
 	When I press 1
 	And I press 1
 	And I press 1

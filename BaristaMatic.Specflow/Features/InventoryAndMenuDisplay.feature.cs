@@ -73,7 +73,7 @@ namespace BaristaMatic.Specflow.Features
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("a full loaded barista matic coffee machine with console");
+ testRunner.Given("a full loaded barista matic coffee machine");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "OutputLine"});
@@ -125,7 +125,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 28
 this.ScenarioSetup(scenarioInfo);
 #line 29
- testRunner.Given("a full loaded barista matic coffee machine with console");
+ testRunner.Given("a full loaded barista matic coffee machine");
 #line 30
  testRunner.When("I press 2");
 #line 31
@@ -217,7 +217,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 71
 this.ScenarioSetup(scenarioInfo);
 #line 72
- testRunner.Given("a full loaded barista matic coffee machine with console");
+ testRunner.Given("a full loaded barista matic coffee machine");
 #line 73
  testRunner.When("I press 1");
 #line 74

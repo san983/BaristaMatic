@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using BaristaMatic.Model;
 using NUnit.Framework;
@@ -11,19 +10,11 @@ namespace BaristaMatic.Specflow.Steps
     public class CommonSteps
     {
         private CoffeeMachine _coffeeMachine;
-        private StringWriter _stringWriter;
 
         [Given("a full loaded barista matic coffee machine")]
         public void GivenAFullLoadedBaristaMaticCoffeeMachine()
         {
             _coffeeMachine = new CoffeeMachine();
-        }
-
-        [Given("a full loaded barista matic coffee machine with console")]
-        public void GivenAFullLoadedBaristaMaticCoffeeMachineWithConsole()
-        {
-            _coffeeMachine = new CoffeeMachine();
-            _coffeeMachine.DisplayIngredientsStockAndMenu();
         }
 
         [When("I press (.*)")]
