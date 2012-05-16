@@ -46,17 +46,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\InventoryAndMenuDisplay.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryAndMenuDisplay.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\StockCalculation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StockCalculation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\BaristaMaticSteps.cs" />
+    <Compile Include="Steps\CommonSteps.cs" />
+    <Compile Include="Steps\InventoryAndMenuDisplaySteps.cs" />
+    <Compile Include="Steps\StockCalculationSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Features\InventoryAndMenuDisplay.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InventoryAndMenuDisplay.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\StockCalculation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -65,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaristaMatic.Console\BaristaMatic.Console.csproj">
+      <Project>{F5EE70A8-1794-4803-96EE-BD5BDDF0EDA9}</Project>
+      <Name>BaristaMatic.Console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BaristaMatic.Model\BaristaMatic.Model.csproj">
       <Project>{7857018E-A5EF-4D4A-8AA6-D9F477F896BB}</Project>
       <Name>BaristaMatic.Model</Name>

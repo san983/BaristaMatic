@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BaristaMatic.Model
 {
@@ -14,7 +15,7 @@ namespace BaristaMatic.Model
             get { return true; }
         }
 
-        public Dictionary<string, int> Ingredients;  
+        public SortedDictionary<string, int> Ingredients;  
     
         public void SelectOption(string selection)
         {
@@ -96,9 +97,9 @@ namespace BaristaMatic.Model
             Ingredients["Cream"] -= 1;
         }
 
-        private static Dictionary<string, int> InitializeIngredientsList()
+        private static SortedDictionary<string, int> InitializeIngredientsList()
         {
-            return new Dictionary<string, int>
+            return new SortedDictionary<string, int>
                        {
                            {"Coffee", 10},
                            {"Decaf Coffee", 10},
@@ -110,6 +111,33 @@ namespace BaristaMatic.Model
                            {"Cocoa", 10},
                            {"Whipped Cream", 10}
                        };
+        }
+
+        public void Run()
+        {
+            ConsoleWrite("Inventory:");
+            DisplayIngredientsStock();
+
+            ConsoleWrite("Menu:");
+            ConsoleWrite("");
+        }
+
+        private void DisplayMenu()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void DisplayIngredientsStock()
+        {
+            foreach (var newline in Ingredients.Select(ingredient => string.Format(" {0},{1}", ingredient.Key, ingredient.Value)))
+            {
+                ConsoleWrite(newline);
+            }
+        }
+
+        private static void ConsoleWrite(string line)
+        {
+            System.Console.WriteLine(line);
         }
     }
 }

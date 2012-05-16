@@ -1,11 +1,15 @@
-﻿namespace BaristaMatic.Console
+﻿using BaristaMatic.Model;
+
+namespace BaristaMatic.Console
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            System.Console.WriteLine("Hello World!");
-            System.Console.ReadKey();
+            var baristaMagic = new CoffeeMachine();
+            baristaMagic.Run();
+
+            //System.Console.ReadKey();
         }
     }
 }
