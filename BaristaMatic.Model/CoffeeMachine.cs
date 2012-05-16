@@ -241,9 +241,15 @@ namespace BaristaMatic.Model
         private void DisplayMenu()
         {
             Write("Menu:");
+
             foreach (var drink in _drinks.OrderBy(t => t.Id))
             {
-                var newline = string.Format("{0},{1},{2},{3}", drink.Id, drink.Name, drink.GetCost(), drink.IsAvailable().ToString().ToLower()); 
+                var newline = string.Format("{0},{1},{2},{3}", 
+                    drink.Id, 
+                    drink.Name, 
+                    drink.GetUSFormattedCost(), 
+                    drink.IsAvailable().ToString().ToLower()); 
+
                 Write(newline);
             }
         }
