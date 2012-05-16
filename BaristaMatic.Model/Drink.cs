@@ -11,11 +11,10 @@ namespace BaristaMatic.Model
 
         public List<Ingredient> Ingredients { get; set; }
 
-        public string GetCost()
+        public string GetUSFormattedCost()
         {
-            var aa = Ingredients.Sum(ingredient => ingredient.UnitCost * ingredient.Units).ToString("C");
-
-            return aa;
+            var result = Ingredients.Sum(ingredient => ingredient.UnitCost * ingredient.Units);
+            return result.ToString("C");
         }
 
         public bool IsAvailable()

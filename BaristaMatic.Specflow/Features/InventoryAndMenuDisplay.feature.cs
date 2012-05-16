@@ -208,6 +208,210 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Trying to dispense an non-available drink")]
+        public virtual void TryingToDispenseAnNon_AvailableDrink()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trying to dispense an non-available drink", ((string[])(null)));
+#line 71
+this.ScenarioSetup(scenarioInfo);
+#line 72
+ testRunner.Given("a full loaded barista matic coffee machine with console");
+#line 73
+ testRunner.When("I press 1");
+#line 74
+ testRunner.And("I press 1");
+#line 75
+ testRunner.And("I press 1");
+#line 76
+ testRunner.And("I press 1");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "OutputLine"});
+            table3.AddRow(new string[] {
+                        "Inventory:"});
+            table3.AddRow(new string[] {
+                        "Cocoa,10"});
+            table3.AddRow(new string[] {
+                        "Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Cream,10"});
+            table3.AddRow(new string[] {
+                        "Decaf Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Espresso,10"});
+            table3.AddRow(new string[] {
+                        "Foamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Steamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Sugar,10"});
+            table3.AddRow(new string[] {
+                        "Whipped Cream,10"});
+            table3.AddRow(new string[] {
+                        "Menu:"});
+            table3.AddRow(new string[] {
+                        "1,Caffe Americano,$3.30,true"});
+            table3.AddRow(new string[] {
+                        "2,Caffe Latte,$2.55,true"});
+            table3.AddRow(new string[] {
+                        "3,Caffe Mocha,$3.35,true"});
+            table3.AddRow(new string[] {
+                        "4,Cappuccino,$2.90,true"});
+            table3.AddRow(new string[] {
+                        "5,Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "6,Decaf Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "Dispensing: Caffe Americano"});
+            table3.AddRow(new string[] {
+                        "Inventory:"});
+            table3.AddRow(new string[] {
+                        "Cocoa,10"});
+            table3.AddRow(new string[] {
+                        "Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Cream,10"});
+            table3.AddRow(new string[] {
+                        "Decaf Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Espresso,7"});
+            table3.AddRow(new string[] {
+                        "Foamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Steamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Sugar,10"});
+            table3.AddRow(new string[] {
+                        "Whipped Cream,10"});
+            table3.AddRow(new string[] {
+                        "Menu:"});
+            table3.AddRow(new string[] {
+                        "1,Caffe Americano,$3.30,true"});
+            table3.AddRow(new string[] {
+                        "2,Caffe Latte,$2.55,true"});
+            table3.AddRow(new string[] {
+                        "3,Caffe Mocha,$3.35,true"});
+            table3.AddRow(new string[] {
+                        "4,Cappuccino,$2.90,true"});
+            table3.AddRow(new string[] {
+                        "5,Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "6,Decaf Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "Dispensing: Caffe Americano"});
+            table3.AddRow(new string[] {
+                        "Inventory:"});
+            table3.AddRow(new string[] {
+                        "Cocoa,10"});
+            table3.AddRow(new string[] {
+                        "Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Cream,10"});
+            table3.AddRow(new string[] {
+                        "Decaf Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Espresso,4"});
+            table3.AddRow(new string[] {
+                        "Foamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Steamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Sugar,10"});
+            table3.AddRow(new string[] {
+                        "Whipped Cream,10"});
+            table3.AddRow(new string[] {
+                        "Menu:"});
+            table3.AddRow(new string[] {
+                        "1,Caffe Americano,$3.30,true"});
+            table3.AddRow(new string[] {
+                        "2,Caffe Latte,$2.55,true"});
+            table3.AddRow(new string[] {
+                        "3,Caffe Mocha,$3.35,true"});
+            table3.AddRow(new string[] {
+                        "4,Cappuccino,$2.90,true"});
+            table3.AddRow(new string[] {
+                        "5,Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "6,Decaf Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "Dispensing: Caffe Americano"});
+            table3.AddRow(new string[] {
+                        "Inventory:"});
+            table3.AddRow(new string[] {
+                        "Cocoa,10"});
+            table3.AddRow(new string[] {
+                        "Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Cream,10"});
+            table3.AddRow(new string[] {
+                        "Decaf Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Espresso,1"});
+            table3.AddRow(new string[] {
+                        "Foamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Steamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Sugar,10"});
+            table3.AddRow(new string[] {
+                        "Whipped Cream,10"});
+            table3.AddRow(new string[] {
+                        "Menu:"});
+            table3.AddRow(new string[] {
+                        "1,Caffe Americano,$3.30,true"});
+            table3.AddRow(new string[] {
+                        "2,Caffe Latte,$2.55,true"});
+            table3.AddRow(new string[] {
+                        "3,Caffe Mocha,$3.35,true"});
+            table3.AddRow(new string[] {
+                        "4,Cappuccino,$2.90,true"});
+            table3.AddRow(new string[] {
+                        "5,Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "6,Decaf Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "Out of stock: Caffe Americano"});
+            table3.AddRow(new string[] {
+                        "Inventory:"});
+            table3.AddRow(new string[] {
+                        "Cocoa,10"});
+            table3.AddRow(new string[] {
+                        "Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Cream,10"});
+            table3.AddRow(new string[] {
+                        "Decaf Coffee,10"});
+            table3.AddRow(new string[] {
+                        "Espresso,1"});
+            table3.AddRow(new string[] {
+                        "Foamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Steamed Milk,10"});
+            table3.AddRow(new string[] {
+                        "Sugar,10"});
+            table3.AddRow(new string[] {
+                        "Whipped Cream,10"});
+            table3.AddRow(new string[] {
+                        "Menu:"});
+            table3.AddRow(new string[] {
+                        "1,Caffe Americano,$3.30,true"});
+            table3.AddRow(new string[] {
+                        "2,Caffe Latte,$2.55,true"});
+            table3.AddRow(new string[] {
+                        "3,Caffe Mocha,$3.35,true"});
+            table3.AddRow(new string[] {
+                        "4,Cappuccino,$2.90,true"});
+            table3.AddRow(new string[] {
+                        "5,Coffee,$2.75,true"});
+            table3.AddRow(new string[] {
+                        "6,Decaf Coffee,$2.75,true"});
+#line 77
+ testRunner.Then("the console output should read like this", ((string)(null)), table3);
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

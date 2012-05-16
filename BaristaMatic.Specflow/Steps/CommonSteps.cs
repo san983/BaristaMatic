@@ -72,7 +72,7 @@ namespace BaristaMatic.Specflow.Steps
         public void ThenTheConsoleOutputShouldBe(Table table)
         {
             var expected = ParseInventoryTable(table);
-            Assert.AreEqual(expected, _coffeeMachine.Out);
+            Assert.AreEqual(expected, _coffeeMachine.GetConsoleOut());
         }
 
         private static string ParseInventoryTable(Table table)

@@ -12,11 +12,16 @@ namespace BaristaMatic.Model
 
         public IList<Ingredient> Ingredients;
         private readonly IList<Drink> _drinks;
-        public string Out;
+        private string _consoleOut;
+
+        public string GetConsoleOut()
+        {
+            return _consoleOut;
+        }
 
         public CoffeeMachine()
         {
-            Out = string.Empty;
+            _consoleOut = string.Empty;
             Ingredients = InitializeIngredientsList();
             _drinks = InitializeDrinksList();
         }
@@ -245,7 +250,7 @@ namespace BaristaMatic.Model
 
         private void Write(string text)
         {
-            Out += (text + Environment.NewLine);
+            _consoleOut += (text + Environment.NewLine);
             Console.WriteLine(text);
         }
     }
