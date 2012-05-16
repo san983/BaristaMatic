@@ -16,10 +16,15 @@ namespace BaristaMatic.Specflow.Steps
             _coffeeMachine = new CoffeeMachine();
         }
 
+        [When("I start the machine")]
+        public void WhenIStartTheMachine()
+        {
+        }
+
         [When("I press (.*)")]
         public void WhenIPress(string selection)
         {
-            _coffeeMachine.SetOption(selection);
+            _coffeeMachine.SelectOption(selection);
         }
 
         [Then("the delivery status should be (.*)")]
