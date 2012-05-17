@@ -22,25 +22,17 @@ namespace BaristaMatic.Model
         public CoffeeMachine()
         {
             _consoleOut = string.Empty;
-            Ingredients = InitializeIngredientsList();
+            Ingredients = InitializeIngredientsList(10);
             _drinks = InitializeDrinksList();
 
             DisplayIngredientsStockAndMenu();
         }
 
-        public bool DeliveryStatus
-        {
-            get { return true; }
-        }
-
-        public void Restock()
-        {
-            Ingredients = InitializeIngredientsList();
-        }
-
         public void Run()
         {
+            //Predefine EitKey just for Specflow run
             var pressedKey = ExitKey;
+
             try
             {
                 pressedKey = GetPressedKey();
@@ -55,26 +47,43 @@ namespace BaristaMatic.Model
                 pressedKey = GetPressedKey();
             }
         }
-
-
+        
         public void RunWithSelection(string pressedKey)
         {
             if (!IsNotExitCommand(pressedKey))
                 return;
 
             if (IsValidDrinkOption(pressedKey))
-                SelectOption(pressedKey);
+                SelectDrinkOption(pressedKey);
             else if (IsRestockCommand(pressedKey))
-                Restock();
+                RestockMachine();
             else
                 ShowInvalidSelection(pressedKey);
 
             DisplayIngredientsStockAndMenu();
         }
-       
-        public void SelectOption(string selection)
+
+        public bool IsDrinkAvailable(Drink drink)
         {
-            switch (selection.ToUpper())
+            var result = true;
+
+            foreach (var ingredient in drink.Ingredients)
+            {
+                result = Ingredients.First(t => t.Name == ingredient.Name).Units >= ingredient.Units;
+                if (!result) break;
+            }
+
+            return result;
+        }
+
+        public void RestockMachine(int initialIngredientStock = 10)
+        {
+            Ingredients = InitializeIngredientsList(initialIngredientStock);
+        }
+       
+        private void SelectDrinkOption(string selection)
+        {
+            switch (selection)
             {
                 case "1":
                 case "2": 
@@ -164,20 +173,7 @@ namespace BaristaMatic.Model
                 Write(newline);
             }
         }
-
-        public bool IsDrinkAvailable(Drink drink)
-        {
-            var result = true;
-
-            foreach (var ingredient in drink.Ingredients)
-            {
-                result = Ingredients.First(t => t.Name == ingredient.Name).Units >= ingredient.Units;
-                if (!result) break;
-            }
-
-            return result;
-        }
-
+        
         private void Write(string text)
         {
             _consoleOut += (text + Environment.NewLine);
@@ -257,19 +253,19 @@ namespace BaristaMatic.Model
                        };
         }
 
-        private static List<Ingredient> InitializeIngredientsList()
+        private static List<Ingredient> InitializeIngredientsList(int initialIngredientStock)
         {
             return new List<Ingredient>
                        {
-                            new Ingredient { Name = "Coffee", Units = 10, UnitCost = 0.75m},
-                            new Ingredient { Name = "Decaf Coffee", Units = 10, UnitCost = 0.75m},
-                            new Ingredient { Name = "Sugar", Units = 10, UnitCost = 0.25m},
-                            new Ingredient { Name = "Cream", Units = 10, UnitCost = 0.25m},
-                            new Ingredient { Name = "Steamed Milk", Units = 10, UnitCost = 0.35m},
-                            new Ingredient { Name = "Foamed Milk", Units = 10, UnitCost = 0.35m},
-                            new Ingredient { Name = "Espresso", Units = 10, UnitCost = 1.10m},
-                            new Ingredient { Name = "Cocoa", Units = 10, UnitCost = 0.90m},
-                            new Ingredient { Name = "Whipped Cream", Units = 10, UnitCost = 1.00m}
+                            new Ingredient { Name = "Coffee", Units = initialIngredientStock, UnitCost = 0.75m},
+                            new Ingredient { Name = "Decaf Coffee", Units = initialIngredientStock, UnitCost = 0.75m},
+                            new Ingredient { Name = "Sugar", Units = initialIngredientStock, UnitCost = 0.25m},
+                            new Ingredient { Name = "Cream", Units = initialIngredientStock, UnitCost = 0.25m},
+                            new Ingredient { Name = "Steamed Milk", Units = initialIngredientStock, UnitCost = 0.35m},
+                            new Ingredient { Name = "Foamed Milk", Units = initialIngredientStock, UnitCost = 0.35m},
+                            new Ingredient { Name = "Espresso", Units = initialIngredientStock, UnitCost = 1.10m},
+                            new Ingredient { Name = "Cocoa", Units = initialIngredientStock, UnitCost = 0.90m},
+                            new Ingredient { Name = "Whipped Cream", Units = initialIngredientStock, UnitCost = 1.00m}
                        };
         }
     }

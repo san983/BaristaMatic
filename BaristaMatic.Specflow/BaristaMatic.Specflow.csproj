@@ -59,6 +59,8 @@
     <Compile Include="Unit\CoffeeMachineTest.cs" />
     <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit\DrinkTest.cs" />
+    <Compile Include="Unit\IngredientTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

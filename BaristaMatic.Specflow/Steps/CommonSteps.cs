@@ -23,12 +23,6 @@ namespace BaristaMatic.Specflow.Steps
             _coffeeMachine.RunWithSelection(selection);
         }
 
-        [Then("the delivery status should be (.*)")]
-        public void ThenTheDeliveryStatusShouldBe(bool result)
-        {
-            Assert.That(_coffeeMachine.DeliveryStatus, Is.EqualTo(result));
-        }
-
         [Then("the stock should be")]
         public void ThenTheStockShouldBe(Table table)
         {

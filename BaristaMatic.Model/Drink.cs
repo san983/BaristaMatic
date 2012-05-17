@@ -13,7 +13,7 @@ namespace BaristaMatic.Model
 
         public string GetUSFormattedCost()
         {
-            var result = Ingredients.Sum(ingredient => ingredient.UnitCost * ingredient.Units);
+            var result = Ingredients.Sum(ingredient => ingredient.GetCostByIngredient());
             return result.ToString("C");
         }
     }

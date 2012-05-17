@@ -132,8 +132,6 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("a full loaded barista matic coffee machine");
 #line 22
  testRunner.When("I press 5");
-#line 23
- testRunner.Then("the delivery status should be true");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",
@@ -165,8 +163,8 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "Whipped Cream",
                         "10"});
-#line 24
- testRunner.And("the stock should be", ((string)(null)), table2);
+#line 23
+ testRunner.Then("the stock should be", ((string)(null)), table2);
 #line hidden
             this.ScenarioCleanup();
         }
@@ -176,14 +174,12 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void JustOneDecafCoffee()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Just one decaf coffee", ((string[])(null)));
-#line 36
+#line 35
 this.ScenarioSetup(scenarioInfo);
-#line 37
+#line 36
  testRunner.Given("a full loaded barista matic coffee machine");
-#line 38
+#line 37
  testRunner.When("I press 6");
-#line 39
- testRunner.Then("the delivery status should be true");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",
@@ -215,8 +211,8 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "Whipped Cream",
                         "10"});
-#line 40
- testRunner.And("the stock should be", ((string)(null)), table3);
+#line 38
+ testRunner.Then("the stock should be", ((string)(null)), table3);
 #line hidden
             this.ScenarioCleanup();
         }
@@ -226,14 +222,12 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void JustOneCaffeLatte()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Just one Caffe Latte", ((string[])(null)));
-#line 52
+#line 50
 this.ScenarioSetup(scenarioInfo);
-#line 53
+#line 51
  testRunner.Given("a full loaded barista matic coffee machine");
-#line 54
+#line 52
  testRunner.When("I press 2");
-#line 55
- testRunner.Then("the delivery status should be true");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",
@@ -265,8 +259,8 @@ this.ScenarioSetup(scenarioInfo);
             table4.AddRow(new string[] {
                         "Whipped Cream",
                         "10"});
-#line 56
- testRunner.And("the stock should be", ((string)(null)), table4);
+#line 53
+ testRunner.Then("the stock should be", ((string)(null)), table4);
 #line hidden
             this.ScenarioCleanup();
         }
@@ -276,14 +270,12 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void JustOneCaffeAmericano()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Just one Caffe Americano", ((string[])(null)));
-#line 68
+#line 65
 this.ScenarioSetup(scenarioInfo);
-#line 69
+#line 66
  testRunner.Given("a full loaded barista matic coffee machine");
-#line 70
+#line 67
  testRunner.When("I press 1");
-#line 71
- testRunner.Then("the delivery status should be true");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",
@@ -315,8 +307,8 @@ this.ScenarioSetup(scenarioInfo);
             table5.AddRow(new string[] {
                         "Whipped Cream",
                         "10"});
-#line 72
- testRunner.And("the stock should be", ((string)(null)), table5);
+#line 68
+ testRunner.Then("the stock should be", ((string)(null)), table5);
 #line hidden
             this.ScenarioCleanup();
         }
@@ -326,14 +318,12 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void JustOneCaffeMocha()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Just one Caffe Mocha", ((string[])(null)));
-#line 84
+#line 80
 this.ScenarioSetup(scenarioInfo);
-#line 85
+#line 81
  testRunner.Given("a full loaded barista matic coffee machine");
-#line 86
+#line 82
  testRunner.When("I press 3");
-#line 87
- testRunner.Then("the delivery status should be true");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",
@@ -365,8 +355,8 @@ this.ScenarioSetup(scenarioInfo);
             table6.AddRow(new string[] {
                         "Whipped Cream",
                         "9"});
-#line 88
- testRunner.And("the stock should be", ((string)(null)), table6);
+#line 83
+ testRunner.Then("the stock should be", ((string)(null)), table6);
 #line hidden
             this.ScenarioCleanup();
         }
@@ -376,14 +366,12 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void JustOneCappuccino()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Just one Cappuccino", ((string[])(null)));
-#line 100
+#line 95
 this.ScenarioSetup(scenarioInfo);
-#line 101
+#line 96
  testRunner.Given("a full loaded barista matic coffee machine");
-#line 102
+#line 97
  testRunner.When("I press 4");
-#line 103
- testRunner.Then("the delivery status should be true");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Ingredient",
@@ -415,8 +403,8 @@ this.ScenarioSetup(scenarioInfo);
             table7.AddRow(new string[] {
                         "Whipped Cream",
                         "10"});
-#line 104
- testRunner.And("the stock should be", ((string)(null)), table7);
+#line 98
+ testRunner.Then("the stock should be", ((string)(null)), table7);
 #line hidden
             this.ScenarioCleanup();
         }
@@ -426,13 +414,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void Restock()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Restock", ((string[])(null)));
-#line 116
+#line 110
 this.ScenarioSetup(scenarioInfo);
-#line 117
+#line 111
  testRunner.Given("a full loaded barista matic coffee machine");
-#line 118
+#line 112
  testRunner.When("I press 5");
-#line 119
+#line 113
  testRunner.And("I press 6");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -465,9 +453,9 @@ this.ScenarioSetup(scenarioInfo);
             table8.AddRow(new string[] {
                         "Whipped Cream",
                         "10"});
-#line 120
+#line 114
  testRunner.Then("the stock should be", ((string)(null)), table8);
-#line 131
+#line 125
  testRunner.When("I press R");
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
@@ -500,7 +488,7 @@ this.ScenarioSetup(scenarioInfo);
             table9.AddRow(new string[] {
                         "Whipped Cream",
                         "10"});
-#line 132
+#line 126
   testRunner.Then("the stock should be", ((string)(null)), table9);
 #line hidden
             this.ScenarioCleanup();
