@@ -1,10 +1,9 @@
-# Barista Matic #·
+# Barista Matic #
 =================
 
 ## A programming assignment Redpoint applicants ##
---------------------------------------------------
 
-* Implemented a Solution (BaristaMatic.sln) in Visual Studio 2010 within 3 projects developed in C#: 
+### Implemented a Solution (BaristaMatic.sln) in Visual Studio 2010 within 3 projects developed in C Sharp ###
 
 1.	BaristaMatic.Console (Set this one as startup project)
 
@@ -14,8 +13,7 @@
 >		CoffeeMachine.cs
 		
 3. 	BaristaMatic.Test (Used for TDD and BDD)
->		Using Specflow 1.8.1 (http://www.specflow.org/)
-> 		Using nUnit 2.6.0 (http://www.nunit.org/)
+>		Using [Specflow 1.8.1] (http://www.specflow.org/)
+> 		Using [nUnit 2.6.0] (http://www.nunit.org/)
 
-by Santiago Traversa (santiago.traversa[at]gmail.com)
------------------------------------------------------
+by [Santiago Traversa] (santiago.traversa@gmail.com)
