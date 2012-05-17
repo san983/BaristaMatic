@@ -77,10 +77,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BaristaMatic.Console\BaristaMatic.Console.csproj">
-      <Project>{F5EE70A8-1794-4803-96EE-BD5BDDF0EDA9}</Project>
-      <Name>BaristaMatic.Console</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BaristaMatic.Model\BaristaMatic.Model.csproj">
       <Project>{7857018E-A5EF-4D4A-8AA6-D9F477F896BB}</Project>
       <Name>BaristaMatic.Model</Name>
