@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace BaristaMatic.Specflow.Features
+namespace BaristaMatic.Test.Features
 {
     using TechTalk.SpecFlow;
     

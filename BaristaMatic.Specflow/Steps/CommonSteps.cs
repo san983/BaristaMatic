@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using BaristaMatic.Model;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
-namespace BaristaMatic.Specflow.Steps
+namespace BaristaMatic.Test.Steps
 {
     [Binding]
     public class CommonSteps
@@ -33,7 +34,7 @@ namespace BaristaMatic.Specflow.Steps
                 
                 var ingredient = _coffeeMachine.Ingredients.FirstOrDefault(t => t.Name == key);
 
-                Assert.That(ingredient.Units.ToString(), Is.EqualTo(units));
+                Assert.That(ingredient.Units.ToString(CultureInfo.InvariantCulture), Is.EqualTo(units));
             }
         }
 

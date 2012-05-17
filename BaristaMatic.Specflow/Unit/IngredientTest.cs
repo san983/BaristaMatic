@@ -1,7 +1,7 @@
 using BaristaMatic.Model;
 using NUnit.Framework;
 
-namespace BaristaMatic.Specflow.Unit
+namespace BaristaMatic.Test.Unit
 {
     [TestFixture]
     public class IngredientTest

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaristaMatic.Console", "BaristaMatic.Console\BaristaMatic.Console.csproj", "{F5EE70A8-1794-4803-96EE-BD5BDDF0EDA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaristaMatic.Specflow", "BaristaMatic.Specflow\BaristaMatic.Specflow.csproj", "{0EB78822-84A4-49C8-B165-47E69AEEAAAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaristaMatic.Test", "BaristaMatic.Specflow\BaristaMatic.Test.csproj", "{0EB78822-84A4-49C8-B165-47E69AEEAAAE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaristaMatic.Model", "BaristaMatic.Model\BaristaMatic.Model.csproj", "{7857018E-A5EF-4D4A-8AA6-D9F477F896BB}"
 EndProject
