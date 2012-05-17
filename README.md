@@ -3,7 +3,7 @@ Barista Matic
 
 *A programming assignment Redpoint applicants*
 
-* Implemented a Solution in Visual Studio 2010 within 3 projects: 
+* Implemented a Solution (BaristaMatic.sln) in Visual Studio 2010 within 3 projects developed in C#: 
 *
 *	BaristaMatic.Console (Set this one as startup project)
 *
@@ -12,7 +12,7 @@ Barista Matic
 *		Drink.cs
 *		CoffeeMachine.cs
 *		
-* 	BaristaMatic.Test (Emp
+* 	BaristaMatic.Test (Used for TDD and BDD)
 *		Using Specflow 1.8.1 (http://www.specflow.org/)
 * 		Using nUnit 2.6.0 (http://www.nunit.org/)
 
